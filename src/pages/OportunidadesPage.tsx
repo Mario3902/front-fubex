@@ -151,7 +151,7 @@ const OportunidadesPage = () => {
       </section>
 
       {/* Destinations */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -183,18 +183,18 @@ const OportunidadesPage = () => {
       </section>
 
       {/* Note */}
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-white dark:bg-gray-900">
         <div className="section-padding">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                <span className="text-amber-600 text-lg">ℹ️</span>
+            <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-900/30 rounded-2xl p-6 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-amber-600 dark:text-amber-400 text-lg">ℹ️</span>
               </div>
               <div>
-                <h4 className="font-semibold text-amber-900 mb-1">
+                <h4 className="font-semibold text-amber-900 dark:text-amber-400 mb-1">
                   Informação Importante
                 </h4>
-                <p className="text-amber-800 text-sm">
+                <p className="text-amber-800 dark:text-amber-200 text-sm">
                   Custos com passagem aérea e acomodação são responsabilidade do
                   estudante para bolsas internacionais, mas oferecemos orientação
                   e suporte completo durante todo o processo.

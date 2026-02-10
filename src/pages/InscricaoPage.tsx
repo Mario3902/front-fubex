@@ -76,16 +76,16 @@ const InscricaoPage = () => {
       </section>
 
       {/* Requirements */}
-      <section className="py-12 bg-amber-50 border-b border-amber-200">
+      <section className="py-12 bg-amber-50 dark:bg-amber-900/10 border-b border-amber-200 dark:border-amber-900/30">
         <div className="section-padding">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                <AlertCircle className="w-5 h-5 text-amber-600" />
+              <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/20 flex items-center justify-center flex-shrink-0">
+                <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
               </div>
               <div>
-                <h3 className="font-semibold text-amber-900 mb-2">Requisitos</h3>
-                <ul className="space-y-1 text-sm text-amber-800">
+                <h3 className="font-semibold text-amber-900 dark:text-amber-400 mb-2">Requisitos</h3>
+                <ul className="space-y-1 text-sm text-amber-800 dark:text-amber-300">
                   <li>• Apresentar documentação válida (Bilhete de Identidade ou Passaporte)</li>
                   <li>• Comprovante de conclusão do ensino médio ou equivalente</li>
                   <li>• Pagar a taxa de inscrição correspondente</li>
@@ -97,38 +97,38 @@ const InscricaoPage = () => {
       </section>
 
       {/* Form */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-4xl mx-auto">
             {isSubmitted ? (
-              <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle className="w-10 h-10 text-green-600" />
+              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-12 text-center border dark:border-gray-800">
+                <div className="w-20 h-20 rounded-full bg-green-100 dark:bg-green-900/20 flex items-center justify-center mx-auto mb-6">
+                  <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   Candidatura Enviada com Sucesso!
                 </h2>
-                <p className="text-gray-600 mb-8 max-w-lg mx-auto">
+                <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto">
                   Agradecemos seu interesse. Nossa equipe analisará sua candidatura
                   e entrará em contato em breve.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Link to="/">
-                    <Button variant="outline" className="border-[#1a365d] text-[#1a365d]">
+                    <Button variant="outline" className="border-[#1a365d] text-[#1a365d] dark:border-[#c9a227] dark:text-[#c9a227]">
                       Voltar à Página Inicial
                     </Button>
                   </Link>
                   <Link to="/oportunidades">
-                    <Button className="bg-[#1a365d] hover:bg-[#2c5282] text-white">
+                    <Button className="bg-[#1a365d] hover:bg-[#2c5282] dark:bg-[#c9a227] dark:hover:bg-[#a88420] text-white dark:text-gray-900 font-bold">
                       Ver Outras Oportunidades
                     </Button>
                   </Link>
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden border dark:border-gray-800">
                 {/* Progress */}
-                <div className="bg-gray-50 px-8 py-6 border-b border-gray-100">
+                <div className="bg-gray-50 dark:bg-gray-800/50 px-8 py-6 border-b border-gray-100 dark:border-gray-800">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-sm font-medium text-gray-600">
                       Etapa {step} de 2
@@ -137,7 +137,7 @@ const InscricaoPage = () => {
                       {step === 1 ? 'Informações Pessoais' : 'Tipo de Bolsa'}
                     </span>
                   </div>
-                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-[#1a365d] transition-all duration-300"
                       style={{ width: step === 1 ? '50%' : '100%' }}
@@ -148,7 +148,7 @@ const InscricaoPage = () => {
                 <form onSubmit={handleSubmit} className="p-8">
                   {step === 1 ? (
                     <div className="space-y-6">
-                      <h2 className="text-xl font-bold text-gray-900 mb-6">
+                      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
                         Informações Pessoais
                       </h2>
 
@@ -161,7 +161,7 @@ const InscricaoPage = () => {
                             id="name"
                             required
                             placeholder="Digite seu nome completo"
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
@@ -174,7 +174,7 @@ const InscricaoPage = () => {
                             type="number"
                             required
                             placeholder="Sua idade"
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
@@ -187,7 +187,7 @@ const InscricaoPage = () => {
                             type="tel"
                             required
                             placeholder="+244 XXX XXX XXX"
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
@@ -200,7 +200,7 @@ const InscricaoPage = () => {
                             type="email"
                             required
                             placeholder="seu@email.com"
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
@@ -209,7 +209,7 @@ const InscricaoPage = () => {
                             Província que vive <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Select required>
-                            <SelectTrigger className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]">
+                            <SelectTrigger className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white">
                               <SelectValue placeholder="Selecione sua província" />
                             </SelectTrigger>
                             <SelectContent>
@@ -230,7 +230,7 @@ const InscricaoPage = () => {
                             id="address"
                             required
                             placeholder="Rua, bairro, cidade..."
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d] resize-none"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white resize-none"
                             rows={3}
                           />
                         </div>
@@ -249,7 +249,7 @@ const InscricaoPage = () => {
                     </div>
                   ) : (
                     <div className="space-y-6">
-                      <h2 className="text-xl font-bold text-gray-900 mb-6">
+                      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
                         Tipo de Bolsa
                       </h2>
 
@@ -259,7 +259,7 @@ const InscricaoPage = () => {
                             Selecione o tipo de bolsa <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Select required>
-                            <SelectTrigger className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]">
+                            <SelectTrigger className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white">
                               <SelectValue placeholder="Escolha o tipo de bolsa" />
                             </SelectTrigger>
                             <SelectContent>
@@ -280,7 +280,7 @@ const InscricaoPage = () => {
                             id="course"
                             required
                             placeholder="Digite o curso que deseja estudar"
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white resize-none"
                           />
                         </div>
 
@@ -289,9 +289,7 @@ const InscricaoPage = () => {
                             Universidade Preferida
                           </Label>
                           <Input
-                            id="university"
-                            placeholder="Se tiver preferência, informe a universidade"
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
@@ -303,7 +301,7 @@ const InscricaoPage = () => {
                             id="motivation"
                             required
                             placeholder="Conte-nos por que você merece esta bolsa..."
-                            className="border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d] resize-none"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white resize-none"
                             rows={6}
                           />
                         </div>
@@ -343,8 +341,8 @@ const InscricaoPage = () => {
                           />
                         </div>
 
-                        <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
-                          <p className="text-sm text-amber-800">
+                        <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/30 rounded-xl">
+                          <p className="text-sm text-amber-800 dark:text-amber-200">
                             <strong>Nota:</strong> A taxa de inscrição não garante
                             a aprovação da bolsa. O processo é seletivo e mediante
                             vagas disponíveis, sujeito a exame de admissão da universidade.
@@ -357,7 +355,7 @@ const InscricaoPage = () => {
                           type="button"
                           variant="outline"
                           onClick={() => setStep(1)}
-                          className="border-gray-300"
+                          className="border-gray-300 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
                         >
                           Voltar
                         </Button>
@@ -382,7 +380,7 @@ const InscricaoPage = () => {
       <section className="py-16 bg-white dark:bg-gray-900">
         <div className="section-padding">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
               Processo Seletivo
             </h2>
             <div className="grid sm:grid-cols-4 gap-6">
@@ -393,11 +391,11 @@ const InscricaoPage = () => {
                 { icon: CheckCircle, title: 'Resultado', desc: 'Notificação' },
               ].map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-14 h-14 rounded-full bg-[#1a365d]/10 flex items-center justify-center mx-auto mb-3">
-                    <item.icon className="w-6 h-6 text-[#1a365d]" />
+                  <div className="w-14 h-14 rounded-full bg-[#1a365d]/10 dark:bg-[#1a365d]/20 flex items-center justify-center mx-auto mb-3">
+                    <item.icon className="w-6 h-6 text-[#1a365d] dark:text-[#c9a227]" />
                   </div>
-                  <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
                 </div>
               ))}
             </div>

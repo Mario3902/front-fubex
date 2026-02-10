@@ -113,14 +113,14 @@ const BolsasInternacionaisPage = () => {
       </section>
 
       {/* Destinations */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Destinos <span className="text-[#c9a227]">Disponíveis</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Escolha o país que melhor se adequa aos seus objetivos académicos.
               </p>
             </div>
@@ -158,7 +158,7 @@ const BolsasInternacionaisPage = () => {
       </section>
 
       {/* Fees */}
-      <section className="py-24 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-white dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -170,7 +170,7 @@ const BolsasInternacionaisPage = () => {
               </p>
             </div>
 
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden">
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl overflow-hidden">
               <div className="grid grid-cols-2 gap-4 p-6 bg-[#1a365d] text-white font-semibold">
                 <div>Tipo de Bolsa</div>
                 <div className="text-right">Taxa de Inscrição</div>
@@ -193,18 +193,18 @@ const BolsasInternacionaisPage = () => {
       </section>
 
       {/* Important Note */}
-      <section className="py-12 bg-amber-50">
+      <section className="py-12 bg-amber-50 dark:bg-amber-900/10">
         <div className="section-padding">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white border border-amber-200 rounded-2xl p-6 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                <span className="text-amber-600 text-lg">ℹ️</span>
+            <div className="bg-white dark:bg-gray-800 border border-amber-200 dark:border-amber-900/30 rounded-2xl p-6 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-amber-600 dark:text-amber-400 text-lg">ℹ️</span>
               </div>
               <div>
-                <h4 className="font-semibold text-amber-900 mb-2">
+                <h4 className="font-semibold text-amber-900 dark:text-amber-400 mb-2">
                   Informação Importante
                 </h4>
-                <p className="text-amber-800 text-sm mb-4">
+                <p className="text-amber-800 dark:text-amber-200 text-sm mb-4">
                   Custos com passagem aérea e acomodação são responsabilidade do
                   estudante para bolsas internacionais. No entanto, oferecemos:
                 </p>
@@ -215,7 +215,7 @@ const BolsasInternacionaisPage = () => {
                     'Suporte na preparação para a viagem',
                     'Acompanhamento durante o período de estudos',
                   ].map((item, index) => (
-                    <li key={index} className="flex items-center gap-2 text-sm text-amber-800">
+                    <li key={index} className="flex items-center gap-2 text-sm text-amber-800 dark:text-amber-300">
                       <CheckCircle className="w-4 h-4 flex-shrink-0" />
                       {item}
                     </li>
@@ -228,7 +228,7 @@ const BolsasInternacionaisPage = () => {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-800/50">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -252,8 +252,8 @@ const BolsasInternacionaisPage = () => {
                   <div className="w-14 h-14 rounded-full bg-[#1a365d] text-white text-xl font-bold flex items-center justify-center mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-base font-bold text-gray-900 mb-1">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                  <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>

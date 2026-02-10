@@ -145,13 +145,13 @@ const HistoriasSucessoPage = () => {
                     "{current.quote}"
                   </blockquote>
 
-                  <div className="border-t border-gray-200 pt-6">
-                    <h3 className="text-2xl font-bold text-gray-900">{current.name}</h3>
-                    <p className="text-[#1a365d] font-medium">{current.course}</p>
-                    <p className="text-gray-500">{current.university}</p>
-                    <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1a365d]/10 rounded-full">
-                      <Award className="w-4 h-4 text-[#1a365d]" />
-                      <span className="text-sm text-[#1a365d] font-medium">{current.achievement}</span>
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{current.name}</h3>
+                    <p className="text-[#1a365d] dark:text-[#c9a227] font-medium">{current.course}</p>
+                    <p className="text-gray-500 dark:text-gray-400">{current.university}</p>
+                    <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#1a365d]/10 dark:bg-[#c9a227]/10 rounded-full">
+                      <Award className="w-4 h-4 text-[#1a365d] dark:text-[#c9a227]" />
+                      <span className="text-sm text-[#1a365d] dark:text-[#c9a227] font-medium">{current.achievement}</span>
                     </div>
                   </div>
                 </div>
@@ -196,14 +196,14 @@ const HistoriasSucessoPage = () => {
       </section>
 
       {/* All Scholars Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Todos os Nossos <span className="text-[#c9a227]">Bolsistas</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Cada história representa uma vida transformada através da educação.
                 Conheça todos os jovens que fazem parte da família Emanuel Xirimbimbi.
               </p>

@@ -179,18 +179,18 @@ const FAQPage = () => {
 
             {/* Contact CTA */}
             <div className="mt-16 text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#1a365d]/10 mb-6">
-                <HelpCircle className="w-8 h-8 text-[#1a365d]" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#1a365d]/10 dark:bg-[#c9a227]/10 mb-6">
+                <HelpCircle className="w-8 h-8 text-[#1a365d] dark:text-[#c9a227]" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Ainda tem dúvidas?
               </h3>
-              <p className="text-gray-600 mb-6 max-w-lg mx-auto">
+              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">
                 Se não encontrou a resposta que procurava, nossa equipe está
                 pronta para ajudar. Entre em contato conosco.
               </p>
               <Link to="/contato">
-                <Button className="bg-[#1a365d] hover:bg-[#2c5282] text-white">
+                <Button className="bg-[#1a365d] hover:bg-[#2c5282] dark:bg-[#c9a227] dark:hover:bg-[#a88420] text-white dark:text-gray-900 font-bold">
                   Fale Conosco
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>

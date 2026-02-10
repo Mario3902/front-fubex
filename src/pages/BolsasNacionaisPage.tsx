@@ -103,7 +103,7 @@ const BolsasNacionaisPage = () => {
       </section>
 
       {/* Universities */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -120,7 +120,7 @@ const BolsasNacionaisPage = () => {
                   {universities.map((uni, index) => (
                     <li key={index} className="flex items-center gap-3">
                       <CheckCircle className="w-5 h-5 text-[#c9a227] flex-shrink-0" />
-                      <span className="text-gray-700">{uni}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{uni}</span>
                     </li>
                   ))}
                 </ul>
@@ -171,8 +171,8 @@ const BolsasNacionaisPage = () => {
               ))}
             </div>
 
-            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl">
-              <p className="text-amber-800 text-sm text-center">
+            <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/30 rounded-xl">
+              <p className="text-amber-800 dark:text-amber-200 text-sm text-center">
                 <strong>Nota:</strong> A taxa de inscrição não garante a aprovação da bolsa.
                 O processo é seletivo e mediante vagas disponíveis.
               </p>
@@ -182,7 +182,7 @@ const BolsasNacionaisPage = () => {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-800/50">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -205,8 +205,8 @@ const BolsasNacionaisPage = () => {
                   <div className="w-16 h-16 rounded-full bg-[#1a365d] text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">
                     {item.step}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{item.desc}</p>
                   {index < 3 && (
                     <div className="hidden md:block absolute top-8 left-[60%] w-full">
                       <ArrowRight className="w-6 h-6 text-gray-300" />

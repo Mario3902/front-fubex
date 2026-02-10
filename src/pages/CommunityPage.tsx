@@ -89,10 +89,10 @@ const CommunityPage = () => {
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Benefícios da <span className="text-[#c9a227]">Comunidade</span>
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                 Como membro da nossa comunidade, você tem acesso a recursos
                 exclusivos e oportunidades únicas.
               </p>
@@ -121,15 +121,15 @@ const CommunityPage = () => {
       </section>
 
       {/* Events */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="py-24 bg-gray-50 dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   Próximos <span className="text-[#c9a227]">Eventos</span>
                 </h2>
-                <p className="text-gray-600 mb-8">
+                <p className="text-gray-600 dark:text-gray-400 mb-8">
                   Participe dos nossos eventos exclusivos para bolseiros.
                   Uma oportunidade de aprender, networkar e crescer.
                 </p>
@@ -138,14 +138,14 @@ const CommunityPage = () => {
                   {events.map((event, index) => (
                     <div
                       key={index}
-                      className="p-5 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow"
+                      className="p-5 rounded-xl bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-shadow"
                     >
                       <div className="flex items-start justify-between">
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-2">
+                          <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                             {event.title}
                           </h4>
-                          <div className="flex flex-wrap gap-3 text-sm text-gray-500">
+                          <div className="flex flex-wrap gap-3 text-sm text-gray-500 dark:text-gray-400">
                             <span className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
                               {event.date}
@@ -153,7 +153,7 @@ const CommunityPage = () => {
                             <span>•</span>
                             <span>{event.time}</span>
                             <span>•</span>
-                            <span className="text-[#1a365d]">{event.type}</span>
+                            <span className="text-[#1a365d] dark:text-[#c9a227]">{event.type}</span>
                           </div>
                         </div>
                       </div>
@@ -231,10 +231,10 @@ const CommunityPage = () => {
       <section className="py-24 bg-white dark:bg-gray-900">
         <div className="section-padding">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
               Junte-se à Nossa Comunidade
             </h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
               Torne-se um bolsista e faça parte de uma rede de jovens angolanos
               que estão transformando seus futuros.
             </p>
@@ -252,7 +252,7 @@ const CommunityPage = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-gray-300"
+                  className="border-gray-300 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
                 >
                   Conheça os Bolsistas
                 </Button>

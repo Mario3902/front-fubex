@@ -82,7 +82,7 @@ const SobrePage = () => {
       </section>
 
       {/* Mission */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -110,8 +110,8 @@ const SobrePage = () => {
                     'Apoio académico personalizado',
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#1a365d] flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
+                      <CheckCircle className="w-5 h-5 text-[#1a365d] dark:text-[#c9a227] flex-shrink-0" />
+                      <span className="text-gray-700 dark:text-gray-300">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -136,7 +136,7 @@ const SobrePage = () => {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 dark:bg-gray-900">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -152,15 +152,15 @@ const SobrePage = () => {
               {values.map((value, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1"
+                  className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1"
                 >
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1a365d] to-[#c9a227] flex items-center justify-center mb-6">
                     <value.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -171,7 +171,7 @@ const SobrePage = () => {
       </section>
 
       {/* Differentials */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-gray-950">
         <div className="section-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -188,15 +188,15 @@ const SobrePage = () => {
               {differentials.map((diff, index) => (
                 <div
                   key={index}
-                  className="group p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-gray-100"
+                  className="group p-6 rounded-2xl bg-gray-50 dark:bg-gray-900 hover:bg-white dark:hover:bg-gray-800 hover:shadow-xl transition-all border border-transparent hover:border-gray-100 dark:hover:border-gray-700"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-[#1a365d]/10 flex items-center justify-center mb-4 group-hover:bg-[#1a365d] transition-colors">
-                    <diff.icon className="w-6 h-6 text-[#1a365d] group-hover:text-white transition-colors" />
+                  <div className="w-12 h-12 rounded-lg bg-[#1a365d]/10 dark:bg-[#c9a227]/10 flex items-center justify-center mb-4 group-hover:bg-[#1a365d] transition-colors">
+                    <diff.icon className="w-6 h-6 text-[#1a365d] dark:text-[#c9a227] group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                     {diff.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                     {diff.description}
                   </p>
                 </div>
