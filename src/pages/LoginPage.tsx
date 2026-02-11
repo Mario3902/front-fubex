@@ -58,7 +58,7 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-gray-700">
-                  E-mail
+                  Nome Completo
                 </Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -70,7 +70,7 @@ const LoginPage = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    placeholder="seu@email.com"
+                    placeholder="Digite seu nome completo"
                     className="pl-10 border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
                   />
                 </div>
@@ -78,7 +78,7 @@ const LoginPage = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="password" className="text-gray-700">
-                  Senha
+                  ID de Candidato
                 </Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -90,7 +90,7 @@ const LoginPage = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, password: e.target.value })
                     }
-                    placeholder="Digite sua senha"
+                    placeholder="Ex: FBEX-1234567890-ABC123"
                     className="pl-10 pr-10 border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
                   />
                   <button
