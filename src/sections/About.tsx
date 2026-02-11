@@ -91,9 +91,7 @@ const About = () => {
                 de qualidade.
               </p>
               <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                A bolsa cobre <span className="font-semibold text-[#1a365d] dark:text-[#c9a227]">100% das propinas após aprovação</span>,
-                com uma taxa de inscrição acessível, democratizando o acesso à
-                educação superior de excelência.
+
               </p>
 
               {/* Benefits List */}
