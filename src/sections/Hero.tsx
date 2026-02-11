@@ -45,13 +45,13 @@ const Hero = () => {
           className="w-full h-full object-cover"
           poster="/bolsista.png"
         >
-          <source 
-            src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4" 
-            type="video/mp4" 
+          <source
+            src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-city-traffic-at-night-11-large.mp4"
+            type="video/mp4"
           />
         </video>
         <div className="absolute inset-0 video-overlay" />
-        
+
         {/* Animated Particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-[#1a365d]/30 rounded-full blur-[80px] md:blur-[100px] animate-pulse" />
@@ -80,12 +80,12 @@ const Hero = () => {
                   <span className="text-gradient-gold">Futuro</span> com Educação
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl text-white/80 italic border-l-4 border-[#c9a227] pl-3 md:pl-4">
-                  "Educação é o combustível do sucesso"
+                  " A educação é o combustível do sucesso"
                 </p>
                 <p className="text-sm md:text-base lg:text-lg text-white/70 max-w-xl">
-                  Uma oportunidade única para jovens angolanos alcançarem seus 
-                  sonhos académicos. Bolsas nacionais e internacionais com 
-                  cobertura total ou comparticipação até 85%.
+                  Uma oportunidade única para jovens angolanos alcançarem seus
+                  sonhos académicos. Bolsas nacionais e internacionais com
+                  cobertura total ou comparticipada até 85%.
                 </p>
               </div>
 
@@ -137,9 +137,9 @@ const Hero = () => {
             <div className="hidden lg:flex justify-center items-center">
               <div className="relative">
                 <div className="w-80 xl:w-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-[#c9a227]/30 float">
-                  <img 
-                    src="/bolsista.png" 
-                    alt="Bolsista de Sucesso" 
+                  <img
+                    src="/bolsista.png"
+                    alt="Bolsista de Sucesso"
                     className="w-full h-auto object-cover"
                   />
                 </div>

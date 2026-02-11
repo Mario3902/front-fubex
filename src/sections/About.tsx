@@ -32,7 +32,7 @@ const About = () => {
     <section className="py-16 md:py-24 bg-white dark:bg-gray-950 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#1a365d]/5 to-transparent" />
-      
+
       <div className="section-padding relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
@@ -45,9 +45,7 @@ const About = () => {
               <span className="text-gradient">Emanuel Xirimbimbi</span>
             </h2>
             <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto px-4">
-              Uma iniciativa filantrópica que visa apoiar jovens angolanos talentosos 
-              em sua jornada educacional, oferecendo oportunidades de ensino superior 
-              de qualidade.
+
             </p>
           </div>
 
@@ -63,7 +61,7 @@ const About = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a365d]/60 via-transparent to-transparent" />
               </div>
-              
+
               {/* Floating Card */}
               <div className="absolute -bottom-4 md:-bottom-6 -right-2 md:-right-6 glass-card rounded-xl md:rounded-2xl p-4 md:p-6 max-w-[180px] md:max-w-xs float">
                 <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-3">
@@ -87,14 +85,14 @@ const About = () => {
                 Nossa Missão é Transformar Vidas Através da Educação
               </h3>
               <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                O Fundo de Bolsas de Estudo Emanuel Xirimbimbi é uma iniciativa 
-                filantrópica que visa apoiar jovens angolanos talentosos em sua 
-                jornada educacional, oferecendo oportunidades de ensino superior 
+                O Fundo de Bolsas de Estudo Emanuel Xirimbimbi é uma iniciativa
+                filantrópica que visa apoiar jovens angolanos talentosos em sua
+                jornada educacional, oferecendo oportunidades de ensino superior
                 de qualidade.
               </p>
               <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                A bolsa cobre <span className="font-semibold text-[#1a365d] dark:text-[#c9a227]">100% das propinas após aprovação</span>, 
-                com uma taxa de inscrição acessível, democratizando o acesso à 
+                A bolsa cobre <span className="font-semibold text-[#1a365d] dark:text-[#c9a227]">100% das propinas após aprovação</span>,
+                com uma taxa de inscrição acessível, democratizando o acesso à
                 educação superior de excelência.
               </p>
 

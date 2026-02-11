@@ -74,8 +74,9 @@ const SobrePage = () => {
               <span className="text-[#c9a227]">Emanuel Xirimbimbi</span>
             </h1>
             <p className="text-xl text-white/80 max-w-2xl mx-auto">
-              Uma iniciativa filantrópica que visa apoiar jovens angolanos
-              talentosos em sua jornada educacional.
+              Uma iniciativa filantrópica que visa apoiar jovens angolanos talentosos
+              em sua jornada educacional, oferecendo oportunidades de ensino superior
+              de qualidade.
             </p>
           </div>
         </div>
