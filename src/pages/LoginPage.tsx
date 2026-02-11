@@ -127,7 +127,7 @@ const LoginPage = () => {
                   href="#"
                   className="text-sm text-[#1a365d] hover:underline"
                 >
-                  Esqueceu a senha?
+                  Esqueceu o ID de Candidato?
                 </a>
               </div>
 
