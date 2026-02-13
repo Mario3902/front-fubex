@@ -101,7 +101,7 @@ const About = () => {
                   'Acesso a universidades nacionais e internacionais',
                   'Programa de mentoria exclusivo',
                   'Apoio académico personalizado',
-                  'Rede de ex-bolsistas global',
+
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-2 md:gap-3">
                     <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#1a365d]/10 flex items-center justify-center flex-shrink-0">
