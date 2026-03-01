@@ -77,7 +77,7 @@ const Hero = () => {
               <div className="space-y-3 md:space-y-4">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
                   Transforme seu{' '}
-                  <span className="text-gradient-gold">Futuro</span> com Educação
+                  <span className="text-gradient-gold">Futuro</span> com a educação
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl text-white/80 italic border-l-4 border-[#c9a227] pl-3 md:pl-4">
                   " A educação é o combustível do sucesso"
