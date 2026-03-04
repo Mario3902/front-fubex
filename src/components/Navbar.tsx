@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useAuth } from '@/contexts/AuthContext';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,20 +30,22 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Sobre', path: '/sobre' },
-    {
-      name: 'Oportunidades',
-      path: '/oportunidades',
-      dropdown: [
-        { name: 'Bolsas Nacionais', path: '/bolsas-nacionais' },
-        { name: 'Bolsas Internacionais', path: '/bolsas-internacionais' },
-      ],
-    },
-    { name: 'Comunidade', path: '/community' },
-    { name: 'Inscrição', path: '/inscricao' },
-    { name: 'Histórias', path: '/historias-sucesso' },
-    { name: 'FAQ', path: '/faq' },
-    { name: 'Contato', path: '/contato' },
+    ...(user ? [
+      { name: 'Sobre', path: '/sobre' },
+      {
+        name: 'Oportunidades',
+        path: '/oportunidades',
+        dropdown: [
+          { name: 'Bolsas Nacionais', path: '/bolsas-nacionais' },
+          { name: 'Bolsas Internacionais', path: '/bolsas-internacionais' },
+        ],
+      },
+      { name: 'Comunidade', path: '/community' },
+      { name: 'Inscrição', path: '/inscricao' },
+      { name: 'Histórias', path: '/historias-sucesso' },
+      { name: 'FAQ', path: '/faq' },
+      { name: 'Contato', path: '/contato' },
+    ] : [])
   ];
 
   return (
@@ -144,13 +148,35 @@ const Navbar = () => {
             </button>
 
             {/* CTA Button */}
-            <Link to="/inscricao">
-              <Button
-                className="bg-gradient-to-r from-[#1a365d] to-[#0f2744] hover:from-[#0f2744] hover:to-[#1a365d] text-white font-semibold px-4 md:px-6 text-sm shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
-              >
-                Candidate-se
-              </Button>
-            </Link>
+            {user ? (
+              <div className="flex items-center gap-3">
+                <span className={`text-sm font-medium ${isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-white/90'}`}>
+                  Olá, {user.nome.split(' ')[0]}
+                </span>
+                <Link to="/inscricao">
+                  <Button
+                    className="bg-gradient-to-r from-[#1a365d] to-[#0f2744] hover:from-[#0f2744] hover:to-[#1a365d] text-white font-semibold px-4 md:px-6 text-sm shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                  >
+                    Candidatar
+                  </Button>
+                </Link>
+                <Button
+                  onClick={logout}
+                  variant="outline"
+                  className={`hidden lg:flex text-xs md:text-sm px-3 py-1.5 h-auto border-gray-300 dark:border-gray-700 ${isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-white border-white/20 bg-white/10 hover:bg-white/20 hover:text-white'}`}
+                >
+                  Sair
+                </Button>
+              </div>
+            ) : (
+              <Link to="/login">
+                <Button
+                  className="bg-gradient-to-r from-[#1a365d] to-[#0f2744] hover:from-[#0f2744] hover:to-[#1a365d] text-white font-semibold px-4 md:px-6 text-sm shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                >
+                  Entrar / Cadastrar
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -224,12 +250,28 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          <div className="pt-4 px-4">
-            <Link to="/inscricao" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full bg-gradient-to-r from-[#1a365d] to-[#0f2744] text-white font-semibold">
-                Candidate-se Agora
-              </Button>
-            </Link>
+          <div className="pt-4 px-4 pb-2 space-y-2">
+            {user ? (
+              <>
+                <div className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Logado como {user.nome}
+                </div>
+                <Link to="/inscricao" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button className="w-full bg-gradient-to-r from-[#1a365d] to-[#0f2744] text-white font-semibold mb-2">
+                    Candidatar à Bolsa
+                  </Button>
+                </Link>
+                <Button onClick={() => { logout(); setIsMobileMenuOpen(false); }} variant="outline" className="w-full">
+                  Sair
+                </Button>
+              </>
+            ) : (
+              <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="w-full bg-gradient-to-r from-[#1a365d] to-[#0f2744] text-white font-semibold">
+                  Entrar / Cadastrar
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

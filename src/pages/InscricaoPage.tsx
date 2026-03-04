@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, AlertCircle, Send, FileText, Banknote, GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,8 +14,23 @@ import {
 } from '@/components/ui/select';
 import HeroCarousel from '@/components/HeroCarousel';
 import FileUpload from '@/components/FileUpload';
+import { useAuth } from '@/contexts/AuthContext';
 
 const InscricaoPage = () => {
+  const { user } = useAuth();
+  const [formData, setFormData] = useState({
+    nome: user?.nome || '',
+    idade: '',
+    telefone: '',
+    email: '',
+    provincia: '',
+    endereco: '',
+    tipoBolsa: '',
+    curso: '',
+    universidade: '',
+    motivacao: ''
+  });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [step, setStep] = useState(1);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -24,6 +39,12 @@ const InscricaoPage = () => {
   const [idDocument, setIdDocument] = useState<File | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [certificate, setCertificate] = useState<File | null>(null);
+
+  useEffect(() => {
+    if (user?.nome) {
+      setFormData(prev => ({ ...prev, nome: user.nome }));
+    }
+  }, [user]);
 
   const fees = [
     { type: 'curso-huawei', label: 'Curso Grátis Financiado pela Huawei', price: 'Grátis' },
@@ -45,6 +66,7 @@ const InscricaoPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Log file uploads (will be sent to backend in production)
+    console.log('Form Data:', formData);
     console.log('Payment Proof:', paymentProof);
     console.log('ID Document:', idDocument);
     console.log('Certificate:', certificate);
@@ -69,7 +91,7 @@ const InscricaoPage = () => {
               Candidatura à <span className="text-[#c9a227]">Bolsa</span>
             </h1>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Preencha o formulário abaixo para se candidatar a uma bolsa de estudo.
+              Preencha o formulário abaixo para se candidatar a uma bolsa de estudo. Os seus dados base já foram preenchidos a partir do seu cadastro.
             </p>
           </div>
         </div>
@@ -154,38 +176,44 @@ const InscricaoPage = () => {
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
-                          <Label htmlFor="name">
+                          <Label htmlFor="nome">
                             Nome Completo <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Input
-                            id="name"
+                            id="nome"
                             required
+                            value={formData.nome}
+                            onChange={(e) => setFormData(prev => ({ ...prev, nome: e.target.value }))}
                             placeholder="Digite seu nome completo"
-                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
+                            className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white bg-gray-50"
                           />
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="age">
+                          <Label htmlFor="idade">
                             Idade <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Input
-                            id="age"
+                            id="idade"
                             type="number"
                             required
+                            value={formData.idade}
+                            onChange={(e) => setFormData(prev => ({ ...prev, idade: e.target.value }))}
                             placeholder="Sua idade"
                             className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="phone">
+                          <Label htmlFor="telefone">
                             Telefone <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Input
-                            id="phone"
+                            id="telefone"
                             type="tel"
                             required
+                            value={formData.telefone}
+                            onChange={(e) => setFormData(prev => ({ ...prev, telefone: e.target.value }))}
                             placeholder="+244 XXX XXX XXX"
                             className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
@@ -199,16 +227,18 @@ const InscricaoPage = () => {
                             id="email"
                             type="email"
                             required
+                            value={formData.email}
+                            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                             placeholder="seu@email.com"
                             className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
                         <div className="space-y-2 md:col-span-2">
-                          <Label htmlFor="province">
+                          <Label htmlFor="provincia">
                             Província que vive <span className="text-[#c9a227]">*</span>
                           </Label>
-                          <Select required>
+                          <Select required value={formData.provincia} onValueChange={(val) => setFormData(prev => ({ ...prev, provincia: val }))}>
                             <SelectTrigger className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white">
                               <SelectValue placeholder="Selecione sua província" />
                             </SelectTrigger>
@@ -223,12 +253,14 @@ const InscricaoPage = () => {
                         </div>
 
                         <div className="space-y-2 md:col-span-2">
-                          <Label htmlFor="address">
+                          <Label htmlFor="endereco">
                             Endereço Completo <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Textarea
-                            id="address"
+                            id="endereco"
                             required
+                            value={formData.endereco}
+                            onChange={(e) => setFormData(prev => ({ ...prev, endereco: e.target.value }))}
                             placeholder="Rua, bairro, cidade..."
                             className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white resize-none"
                             rows={3}
@@ -258,7 +290,7 @@ const InscricaoPage = () => {
                           <Label htmlFor="scholarship-type">
                             Selecione o tipo de bolsa <span className="text-[#c9a227]">*</span>
                           </Label>
-                          <Select required>
+                          <Select required value={formData.tipoBolsa} onValueChange={(val) => setFormData(prev => ({ ...prev, tipoBolsa: val }))}>
                             <SelectTrigger className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white">
                               <SelectValue placeholder="Escolha o tipo de bolsa" />
                             </SelectTrigger>
@@ -273,33 +305,40 @@ const InscricaoPage = () => {
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="course">
+                          <Label htmlFor="curso">
                             Curso de Interesse <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Input
-                            id="course"
+                            id="curso"
                             required
+                            value={formData.curso}
+                            onChange={(e) => setFormData(prev => ({ ...prev, curso: e.target.value }))}
                             placeholder="Digite o curso que deseja estudar"
                             className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white resize-none"
                           />
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="university">
+                          <Label htmlFor="universidade">
                             Universidade Preferida
                           </Label>
                           <Input
+                            id="universidade"
+                            value={formData.universidade}
+                            onChange={(e) => setFormData(prev => ({ ...prev, universidade: e.target.value }))}
                             className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white"
                           />
                         </div>
 
                         <div className="space-y-2">
-                          <Label htmlFor="motivation">
+                          <Label htmlFor="motivacao">
                             Carta de Motivação <span className="text-[#c9a227]">*</span>
                           </Label>
                           <Textarea
-                            id="motivation"
+                            id="motivacao"
                             required
+                            value={formData.motivacao}
+                            onChange={(e) => setFormData(prev => ({ ...prev, motivacao: e.target.value }))}
                             placeholder="Conte-nos por que você merece esta bolsa..."
                             className="border-gray-200 dark:border-gray-700 focus:border-[#1a365d] focus:ring-[#1a365d] dark:bg-gray-800 dark:text-white resize-none"
                             rows={6}

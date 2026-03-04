@@ -1,17 +1,22 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Eye, EyeOff, Lock, Mail, ArrowRight, GraduationCap } from 'lucide-react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Eye, EyeOff, Lock, User, ArrowRight, GraduationCap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
+import { useAuth } from '@/contexts/AuthContext';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    nome: '',
+    numero: '',
     rememberMe: false,
   });
 
@@ -19,8 +24,13 @@ const LoginPage = () => {
     e.preventDefault();
     setIsLoading(true);
     // Simulate login
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    login(formData.nome, formData.numero);
     setIsLoading(false);
+
+    // Redirect to where they came from or home
+    const from = location.state?.from?.pathname || '/';
+    navigate(from, { replace: true });
   };
 
   return (
@@ -57,18 +67,18 @@ const LoginPage = () => {
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-gray-700">
+                <Label htmlFor="nome" className="text-gray-700">
                   Nome Completo
                 </Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <Input
-                    id="email"
-                    type="email"
+                    id="nome"
+                    type="text"
                     required
-                    value={formData.email}
+                    value={formData.nome}
                     onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
+                      setFormData({ ...formData, nome: e.target.value })
                     }
                     placeholder="Digite seu nome completo"
                     className="pl-10 border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
@@ -77,20 +87,20 @@ const LoginPage = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-gray-700">
-                  ID de Candidato
+                <Label htmlFor="numero" className="text-gray-700">
+                  Número de Candidato (ou Bilhete)
                 </Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <Input
-                    id="password"
+                    id="numero"
                     type={showPassword ? 'text' : 'password'}
                     required
-                    value={formData.password}
+                    value={formData.numero}
                     onChange={(e) =>
-                      setFormData({ ...formData, password: e.target.value })
+                      setFormData({ ...formData, numero: e.target.value })
                     }
-                    placeholder="Ex: FBEX-1234567890-ABC123"
+                    placeholder="Ex: 000000000LA012"
                     className="pl-10 pr-10 border-gray-200 focus:border-[#1a365d] focus:ring-[#1a365d]"
                   />
                   <button
@@ -123,12 +133,6 @@ const LoginPage = () => {
                     Lembrar-me
                   </Label>
                 </div>
-                <a
-                  href="#"
-                  className="text-sm text-[#1a365d] hover:underline"
-                >
-                  Esqueceu o ID de Candidato?
-                </a>
               </div>
 
               <Button
@@ -143,26 +147,12 @@ const LoginPage = () => {
                   </span>
                 ) : (
                   <>
-                    Entrar
+                    Entrar / Cadastrar
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </>
                 )}
               </Button>
             </form>
-
-            <div className="mt-8 pt-6 border-t border-gray-100 text-center">
-              <p className="text-gray-600 text-sm mb-4">
-                Ainda não se candidatou?
-              </p>
-              <Link to="/inscricao">
-                <Button
-                  variant="outline"
-                  className="w-full border-[#1a365d] text-[#1a365d] hover:bg-[#1a365d] hover:text-white"
-                >
-                  Fazer Inscrição
-                </Button>
-              </Link>
-            </div>
           </div>
 
           {/* Help */}
