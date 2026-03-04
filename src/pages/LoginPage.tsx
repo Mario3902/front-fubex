@@ -61,7 +61,7 @@ const LoginPage = () => {
                 Acesso do Candidato
               </h1>
               <p className="text-gray-600 text-sm">
-                Entre com suas credenciais para acompanhar sua candidatura
+                Coloque ou crie as suas credenciais para acompanhar sua candidatura
               </p>
             </div>
 
