@@ -101,6 +101,10 @@ const About = () => {
                   'Acesso a universidades nacionais e internacionais',
                   'Programa de mentoria exclusivo',
                   'Apoio académico personalizado',
+                  'Bolsa de Estudo Gratuita',
+                  'Acesso Direto ao Emprego',
+                  'Rede de Apoio Académico'
+
 
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-2 md:gap-3">
